@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: workflow-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: argo-server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 2746
