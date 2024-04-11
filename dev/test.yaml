@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: sample-workflow-template
+spec:
+  entrypoint: main
+  templates:
+    - name: main
+      dag:
+        tasks:
+          - name: task1
+            template: task1
+          - name: task2
+            template: task2
+            dependencies: [task1]
+          - name: task3
+            template: task3
+            dependencies: [task2]
+    - name: task1
+      container:
+        image: alpine:latest
+        command: ["sh", "-c"]
+        args: ["echo Task 1"]
+    - name: task2
+      container:
+        image: alpine:latest
+        command: ["sh", "-c"]
+        args: ["echo Task 2"]
+    - name: task3
+      container:
+        image: alpine:latest
+        command: ["sh", "-c"]
+        args: ["echo Task 3,hi"]
