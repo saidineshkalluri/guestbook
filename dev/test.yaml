@@ -30,4 +30,4 @@ spec:
       container:
         image: alpine:latest
         command: ["sh", "-c"]
-        args: ["echo Task 3"]
+        args: ["echo Task 3,hi"]
