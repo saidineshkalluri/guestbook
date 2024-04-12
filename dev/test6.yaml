@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: workflow-6
+  namespace: argo
 spec:
   entrypoint: main
   templates:
@@ -27,4 +28,4 @@ spec:
       container:
         image: alpine:latest
         command: ["sh", "-c"]
-        args: ["echo Task 3, sprint is about to end"]
+        args: ["echo Task 3"]
