@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: test-workflow-1
+  namespace: argo
 spec:
   entrypoint: main
   templates:
