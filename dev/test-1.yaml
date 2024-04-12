@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
   name: workflow-1
+  namespace: argo
 spec:
   entrypoint: main
   templates:
@@ -17,14 +18,14 @@ spec:
       container:
         image: alpine:latest
         command: ["sh", "-c"]
-        args: ["echo Task 1"]
+        args: ["echo Task 1,hi"]
     - name: task2
       container:
         image: alpine:latest
         command: ["sh", "-c"]
-        args: ["echo Task 2"]
+        args: ["echo Task 2,every]
     - name: task3
       container:
         image: alpine:latest
         command: ["sh", "-c"]
-        args: ["echo Task 3"]
+        args: ["echo Task 3,one"]
