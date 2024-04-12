@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: workflow-5
+spec:
+  entrypoint: main
+  templates:
+    - name: main
+      steps:
+        - - name: task1
+            template: task1
+          - name: task2
+            template: task2
+          - name: task3
+            template: task3
+    - name: task1
+      container:
+        image: alpine:latest
+        command: ["sh", "-c"]
+        args: ["echo Task 1"]
+    - name: task2
+      container:
+        image: alpine:latest
+        command: ["sh", "-c"]
+        args: ["echo Task 2"]
+    - name: task3
+      container:
+        image: alpine:latest
+        command: ["sh", "-c"]
+        args: ["echo Task 3, sprint is about to end"]
